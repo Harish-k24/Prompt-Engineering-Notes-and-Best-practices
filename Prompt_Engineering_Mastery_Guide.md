@@ -1,4 +1,4 @@
-# Prompt Engineering Mastery: The Complete Guide
+# Prompt Engineering Mastery: 
 
 ## From Fundamentals to Production-Grade AI Systems
 
@@ -81,7 +81,7 @@ The LLM learned sentiment patterns during training. You just remind it what task
 
 #### When to Use
 
-|✅ Use When|❌ Avoid When|
+| Use When| Avoid When|
 |-|-|
 |Simple, well-known tasks|Domain-specific nuance|
 |Fast prototyping|Edge cases matter|
@@ -211,12 +211,12 @@ Model: "Following the pattern... Neutral"
 **1. Example Selection is Critical**
 
 ```
-❌ Bad examples:
+ Bad examples:
 Input: "I hate bugs"      → Output: "Negative"
 Input: "I love debugging" → Output: "Positive"
 (These don't teach edge cases)
 
-✅ Good examples:
+ Good examples:
 Input: "This is awful"    → Output: "Negative"
 Input: "Not bad"          → Output: "Positive" (catches confusion)
 Input: "It's fine"        → Output: "Neutral"
@@ -439,13 +439,13 @@ In production, this is expensive. Use only for high-stakes tasks.
 **2. Voting Heuristic Matters**
 
 ```
-❌ Simple majority:
+ Simple majority:
 Path 1: 2
 Path 2: 2
 Path 3: 3
 Vote: 2 (but what if path 3 has better reasoning?)
 
-✅ Weighted majority:
+ Weighted majority:
 Score each path's reasoning quality, weight the vote.
 Path 1 (confidence: high): 2
 Path 2 (confidence: high): 2
@@ -520,12 +520,12 @@ Output: Final enriched JSON
 **1. Output Contract (Critical for Pipelines)**
 
 ```
-❌ Implicit:
+ Implicit:
 Step 1: "Summarize the text"
 Step 2: "Classify the summary"
 (Does Step 2 receive JSON? Plain text? Breaks randomly)
 
-✅ Explicit Contract:
+ Explicit Contract:
 Step 1 output spec:
 {
   "summary": "string (max 100 words)",
