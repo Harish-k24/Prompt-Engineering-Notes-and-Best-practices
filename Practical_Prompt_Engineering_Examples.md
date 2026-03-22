@@ -8,76 +8,121 @@ Real-world, copy-paste-ready code for implementing prompt engineering techniques
 
 ### Basic LLM Wrapper (Any Provider)
 
-```python
-import json
-import time
-from typing import Optional, Dict, Any
+```import json                 # (optional here) used for structured payloads / responses
+import time                 # used to measure latency of LLM calls
+from typing import Optional, Dict, Any   # type hints for better readability & contracts
+
 
 class PromptEngine:
-    """Encapsulates prompt logic with validation \& monitoring"""
+    """Encapsulates prompt logic with validation & monitoring
+    → Acts as a wrapper over LLM APIs
+    → Adds metrics, error handling, and configuration control
+    """
     
-    def \_\_init\_\_(self, model\_name: str = "claude-3-sonnet", temperature: float = 0):
-        self.model = model\_name
+    def __init__(self, model_name: str = "claude-3-sonnet", temperature: float = 0):
+        # model identifier (can switch between providers/models)
+        self.model = model_name
+        
+        # controls randomness (0 = deterministic, good for pipelines)
         self.temperature = temperature
-        self.call\_count = 0
-        self.total\_tokens = 0
-        self.errors = \[]
+        
+        # observability metrics
+        self.call_count = 0          # total API calls made
+        self.total_tokens = 0        # cumulative token usage
+        self.errors = []             # store error messages
     
-    def call(self, prompt: str, system: Optional\[str] = None, 
-             max\_tokens: int = 1000) -> Dict\[str, Any]:
-        """Call LLM with error handling and monitoring"""
+    
+    def call(self, prompt: str, system: Optional[str] = None, 
+             max_tokens: int = 1000) -> Dict[str, Any]:
+        """Call LLM with error handling and monitoring
+        
+        Inputs:
+        - prompt: user input / task
+        - system: system instruction (behavior control)
+        - max_tokens: response size limit
+        
+        Output:
+        - structured response with success flag, tokens, latency
+        """
         try:
-            start\_time = time.time()
+            start_time = time.time()   # start latency timer
             
-            # Call your LLM provider (example uses Claude API)
-            response = self.\_call\_api(
+            # actual LLM call (delegated to internal method)
+            response = self._call_api(
                 system=system,
                 prompt=prompt,
                 temperature=self.temperature,
-                max\_tokens=max\_tokens
+                max_tokens=max_tokens
             )
             
-            latency = time.time() - start\_time
-            self.call\_count += 1
-            self.total\_tokens += response.get('tokens\_used', 0)
+            # compute latency
+            latency = time.time() - start_time
             
+            # update metrics
+            self.call_count += 1
+            self.total_tokens += response.get('tokens_used', 0)
+            
+            # standard response format (important for pipelines)
             return {
                 'success': True,
-                'response': response\['text'],
-                'tokens': response.get('tokens\_used', 0),
-                'latency\_ms': latency \* 1000
+                'response': response['text'],                 # actual LLM output
+                'tokens': response.get('tokens_used', 0),     # usage tracking
+                'latency_ms': latency * 1000                  # performance metric
             }
         
         except Exception as e:
+            # capture error for observability
             self.errors.append(str(e))
+            
+            # return failure-safe response (no crash)
             return {
                 'success': False,
                 'error': str(e),
                 'response': None
             }
     
-    def \_call\_api(self, system, prompt, temperature, max\_tokens):
-        """Replace with your actual API call"""
-        # This is a placeholder
+    
+    def _call_api(self, system, prompt, temperature, max_tokens):
+        """Replace with your actual API call
+        
+        → This is the integration point:
+           - Claude / OpenAI / Azure OpenAI
+           - Can add retry, rate limit handling, etc.
+        """
+        # Placeholder/mock response
         return {
             'text': 'Mock response',
-            'tokens\_used': len(prompt.split())
+            'tokens_used': len(prompt.split())   # naive token estimation
         }
     
-    def get\_metrics(self) -> Dict:
-        """Return usage metrics"""
+    
+    def get_metrics(self) -> Dict:
+        """Return usage metrics
+        
+        → Useful for:
+           - cost tracking
+           - performance monitoring
+           - error analysis
+        """
         return {
-            'calls': self.call\_count,
-            'total\_tokens': self.total\_tokens,
-            'avg\_tokens\_per\_call': self.total\_tokens / max(self.call\_count, 1),
-            'error\_count': len(self.errors),
-            'error\_rate': len(self.errors) / max(self.call\_count, 1)
+            'calls': self.call_count,
+            'total_tokens': self.total_tokens,
+            
+            # average tokens per request (cost efficiency metric)
+            'avg_tokens_per_call': self.total_tokens / max(self.call_count, 1),
+            
+            'error_count': len(self.errors),
+            
+            # error rate (reliability metric)
+            'error_rate': len(self.errors) / max(self.call_count, 1)
         }
 
+
 # Usage:
-engine = PromptEngine(temperature=0)  # Deterministic
+engine = PromptEngine(temperature=0)  # deterministic → consistent outputs
 result = engine.call(prompt="Your prompt here")
-print(engine.get\_metrics())
+
+print(engine.get_metrics())  # observability dashboard
 ```
 
 \---
