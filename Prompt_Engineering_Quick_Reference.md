@@ -332,30 +332,6 @@ Usually leave at default. Only adjust if sampling is unstable.
 11. Fine-tuning basics
 12. Monitoring \& iteration
 
-\---
-
-## Resource Links
-
-**Learning:**
-
-* Anthropic's Prompt Engineering Guide
-* OpenAI's Best Practices
-* Papers: CoT (Wei et al.), Self-Consistency (Wang et al.), ToT (Yao et al.)
-
-**Tools:**
-
-* Token counter: https://platform.openai.com/tokenizer
-* Playground: https://console.anthropic.com
-* Monitoring: Use standard APM tools (Datadog, New Relic, etc.)
-
-**Community:**
-
-* Twitter/X: #promptengineering
-* Discord communities: AI development channels
-* GitHub: Prompt repositories and benchmarks
-
-\---
-
 ## One-Liners (For Quick Reference)
 
 ```
