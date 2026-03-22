@@ -191,7 +191,7 @@ Fix:
 
 \---
 
-## Interview Talking Points
+##  Talking Points
 
 ### "What's your approach to prompt engineering?"
 
