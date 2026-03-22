@@ -8,7 +8,8 @@ Real-world, copy-paste-ready code for implementing prompt engineering techniques
 
 ### Basic LLM Wrapper (Any Provider)
 
-```import json                 # (optional here) used for structured payloads / responses
+```python
+import json                 # (optional here) used for structured payloads / responses
 import time                 # used to measure latency of LLM calls
 from typing import Optional, Dict, Any   # type hints for better readability & contracts
 
