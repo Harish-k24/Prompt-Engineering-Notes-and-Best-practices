@@ -1857,22 +1857,6 @@ When reviewing or designing a prompt system, work through these 7 questions:
 
 ---
 
-## Quick Reference Production Checklist
-
-### Prompt Design
-- [ ] Role specifies both what the model SHOULD and SHOULD NOT do
-- [ ] Task is atomic — one primary output per prompt
-- [ ] Context slots are named and token-budgeted
-- [ ] Failure path instruction included (error JSON or "not found" response)
-- [ ] Output schema provided as a concrete example, not a description
-
-### System Design
-- [ ] Prompt stored in registry with version, author, eval baseline metadata
-- [ ] CI gate: golden dataset regression check runs on every prompt change
-- [ ] Canary deploy before full rollout; rollback path defined
-- [ ] Output validator in place (schema + confidence threshold)
-- [ ] Retry + fallback architecture documented and tested
-- [ ] Circuit breaker on failure rate spike
 
 ### Security & Governance
 - [ ] Input injection scan before LLM call
