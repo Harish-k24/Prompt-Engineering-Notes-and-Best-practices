@@ -4,9 +4,9 @@
 
 \---
 
-> \\\*\\\*Who this is for:\\\*\\\* Anyone who types instructions into an AI and wonders why it gives weird answers. Beginners, developers, analysts, HR folks, consultants — everyone who talks to AI for work.
+> **Who this is for:** Anyone who types instructions into an AI and wonders why it gives weird answers. Beginners, developers, analysts, HR folks, consultants — everyone who talks to AI for work.
 
-> \\\*\\\*What you'll get:\\\*\\\* 15 techniques, 10 ready-to-use prompt templates, debugging playbook, enterprise survival guide, and 30  discussion pointers. Plain language throughout. No PhD required.
+> **What you'll get:** 15 techniques, 10 ready-to-use prompt templates, debugging playbook, enterprise survival guide, and 30  discussion pointers. Plain language throughout. No PhD required.
 
 \---
 
@@ -179,7 +179,7 @@ Write a professional email. Here is the style I want:
 
 Example:
 Subject: Q3 Pipeline Review — Action Required
-Hi \\\[Name], I wanted to follow up on the Q3 pipeline numbers before Thursday's leadership meeting...
+Hi [Name], I wanted to follow up on the Q3 pipeline numbers before Thursday's leadership meeting...
 ```
 
 **Mistake to avoid:** Using bad examples. If your example is vague or poorly written, the AI will imitate that.
@@ -200,9 +200,9 @@ Hi \\\[Name], I wanted to follow up on the Q3 pipeline numbers before Thursday's
 Return your analysis in this exact JSON format:
 {
   "summary": "one sentence",
-  "key\\\_findings": \\\["finding 1", "finding 2"],
-  "risk\\\_level": "low | medium | high",
-  "recommended\\\_action": "one sentence"
+  "key_findings": ["finding 1", "finding 2"],
+  "risk_level": "low | medium | high",
+  "recommended_action": "one sentence"
 }
 ```
 
@@ -241,7 +241,7 @@ CONSTRAINTS:
 - Do not mention the internal hire
 - End with an invitation to apply again
 
-EXAMPLE OPENING: "Dear \\\[Name], Thank you so much for taking the time to..."
+EXAMPLE OPENING: "Dear [Name], Thank you so much for taking the time to..."
 
 OUTPUT FORMAT: Plain email with Subject line, greeting, body, and sign-off.
 
@@ -298,7 +298,7 @@ The model has been trained on enormous amounts of human text. Many common tasks 
 
 ```
 Classify the following customer message into one of these categories:
-\\\[Flight Issue / Hotel Issue / Refund Request / Baggage / Other]
+[Flight Issue / Hotel Issue / Refund Request / Baggage / Other]
 
 Customer message: "My bag never arrived at the carousel after my flight from Dubai."
 
@@ -412,20 +412,20 @@ Language models predict the next most likely token. When you show examples of a 
 
 ```
 Classify these pipeline error messages into categories.
-Categories: \\\[TIMEOUT / AUTH\\\_FAILURE / DATA\\\_FORMAT / MISSING\\\_FILE / UNKNOWN]
+Categories: [TIMEOUT / AUTH_FAILURE / DATA_FORMAT / MISSING_FILE / UNKNOWN]
 
 Examples:
 Message: "Connection to database timed out after 30s"
 Category: TIMEOUT
 
-Message: "Invalid credentials for user svc\\\_account\\\_etl"
-Category: AUTH\\\_FAILURE
+Message: "Invalid credentials for user svc_account_etl"
+Category: AUTH_FAILURE
 
 Message: "Expected CSV but received JSON payload"
-Category: DATA\\\_FORMAT
+Category: DATA_FORMAT
 
 Now classify:
-Message: "File orders\\\_2024\\\_Q3.csv not found in /data/input/"
+Message: "File orders_2024_Q3.csv not found in /data/input/"
 Category:
 ```
 
@@ -439,7 +439,7 @@ Category:
 ### 9\. Expected Output Example
 
 ```
-MISSING\\\_FILE
+MISSING_FILE
 ```
 
 ### 10\. Common Mistakes
@@ -469,16 +469,16 @@ MISSING\\\_FILE
 **Before:**
 
 ```
-Classify this error: "File orders\\\_2024\\\_Q3.csv not found"
+Classify this error: "File orders_2024_Q3.csv not found"
 ```
 
 **After:**
 
 ```
-\\\[Full few-shot prompt as shown above]
+[Full few-shot prompt as shown above]
 ```
 
-**Why better:** With no examples, the model might say "File not found error" or write a paragraph. With examples, it returns exactly `MISSING\\\_FILE` — machine-parseable, consistent, right.
+**Why better:** With no examples, the model might say "File not found error" or write a paragraph. With examples, it returns exactly `MISSING_FILE` — machine-parseable, consistent, right.
 
 ### 15\. Cost Awareness
 
@@ -539,7 +539,7 @@ Step through this analysis:
 Step 1 — Calculate how this compares to their monthly average
 Step 2 — Identify whether the pattern fits any common fraud indicators
 Step 3 — State your confidence level (Low / Medium / High) that this is suspicious
-Step 4 — Give your final recommendation: \\\[Flag for Review / No Action]
+Step 4 — Give your final recommendation: [Flag for Review / No Action]
 
 Work through each step explicitly before giving the final recommendation.
 ```
@@ -755,7 +755,7 @@ You are a senior SQL developer with deep expertise in performance optimisation f
 
 A junior developer has written the following query and it's running very slowly:
 
-\\\[query here]
+[query here]
 
 Review this query and explain:
 1. Why it's slow (identify the specific issues)
@@ -970,11 +970,11 @@ Extract the key information from the following customer complaint and return it 
 
 Use this exact schema:
 {
-  "customer\\\_id": "string or null",
-  "complaint\\\_category": "billing | technical | delivery | other",
+  "customer_id": "string or null",
+  "complaint_category": "billing | technical | delivery | other",
   "severity": "low | medium | high",
   "summary": "max 50 words",
-  "suggested\\\_action": "string"
+  "suggested_action": "string"
 }
 
 Customer complaint:
@@ -992,11 +992,11 @@ Customer complaint:
 
 ```json
 {
-  "customer\\\_id": null,
-  "complaint\\\_category": "billing",
+  "customer_id": null,
+  "complaint_category": "billing",
   "severity": "high",
   "summary": "Customer charged twice this month, third occurrence. Threatening to cancel.",
-  "suggested\\\_action": "Process refund and escalate to retention team."
+  "suggested_action": "Process refund and escalate to retention team."
 }
 ```
 
@@ -1096,21 +1096,21 @@ John: Sure. Also we agreed to move the client demo to next Wednesday.
 Mark: I'll send calendar invites for the demo today.
 </transcript>
 
-<output\\\_format>
+<output_format>
 ## Decisions
-- \\\[list]
+- [list]
 
 ## Action Items
 | Owner | Task | Deadline |
 |---|---|---|
-</output\\\_format>
+</output_format>
 ```
 
 ### 8\. Prompt Breakdown
 
 * **`<instruction>` tags** — clearly wraps what the model should do
 * **`<transcript>` tags** — clearly wraps the data to process
-* **`<output\\\_format>` tags** — defines the expected structure of the response
+* **`<output_format>` tags** — defines the expected structure of the response
 * No ambiguity about what's instruction vs. what's data vs. what's the output template
 
 ### 9\. Expected Output Example
@@ -1318,7 +1318,7 @@ Given the following patient symptoms, what is the most likely diagnosis category
 Symptoms: 38.5°C fever, productive cough, chest pain on breathing, fatigue for 4 days.
 
 Think through the differential diagnosis systematically.
-Final answer: \\\[Most likely category]
+Final answer: [Most likely category]
 ```
 
 Then compare outputs across three runs and use the consistent answer.
@@ -1415,16 +1415,16 @@ By making the model explain its reasoning before acting, you reduce impulsive ac
 
 ```
 You are a helpful analyst assistant with access to these tools:
-- search\\\_database(query) — searches the internal sales database
+- search_database(query) — searches the internal sales database
 - calculate(expression) — evaluates a mathematical expression
-- get\\\_report(report\\\_name) — retrieves a specific report
+- get_report(report_name) — retrieves a specific report
 
 Use this format for each step:
-Thought: \\\[your reasoning]
-Action: \\\[tool\\\_name(parameters)]
-Observation: \\\[result of the action]
+Thought: [your reasoning]
+Action: [tool_name(parameters)]
+Observation: [result of the action]
 ... (repeat as needed)
-Final Answer: \\\[your answer]
+Final Answer: [your answer]
 
 Task: What was the percentage increase in sales for the Western region between Q2 and Q3 this year?
 ```
@@ -1440,15 +1440,15 @@ Task: What was the percentage increase in sales for the Western region between Q
 
 ```
 Thought: I need Q2 and Q3 Western region sales data.
-Action: get\\\_report("Q2\\\_Sales\\\_Regional")
+Action: get_report("Q2_Sales_Regional")
 Observation: Western Region Q2 Sales: £2.4M
 
 Thought: Now I need Q3 data.
-Action: get\\\_report("Q3\\\_Sales\\\_Regional")
+Action: get_report("Q3_Sales_Regional")
 Observation: Western Region Q3 Sales: £2.9M
 
 Thought: Now calculate the percentage increase.
-Action: calculate("(2.9 - 2.4) / 2.4 \\\* 100")
+Action: calculate("(2.9 - 2.4) / 2.4 * 100")
 Observation: 20.83
 
 Final Answer: The Western region saw a 20.83% increase in sales from Q2 to Q3.
@@ -1651,17 +1651,17 @@ If the answer is not in the documents, say: "I don't have that information — p
 Do not use general knowledge. Cite which document your answer comes from.
 </instruction>
 
-<retrieved\\\_documents>
+<retrieved_documents>
 Document 1 — Annual Leave Policy (updated March 2024):
 "Full-time employees are entitled to 28 days annual leave per year, including bank holidays. Leave must be requested via the HR portal with a minimum of 2 weeks' notice..."
 
 Document 2 — Remote Work Policy (updated January 2024):
 "Employees may work remotely up to 3 days per week with manager approval..."
-</retrieved\\\_documents>
+</retrieved_documents>
 
-<employee\\\_question>
+<employee_question>
 How many days of annual leave do I get, and how do I request them?
-</employee\\\_question>
+</employee_question>
 ```
 
 ### 8\. Prompt Breakdown
@@ -1768,14 +1768,14 @@ Complex tasks have multiple distinct cognitive steps. Trying to do all of them i
 ```
 Extract the 5 most important facts from the following press release.
 Return as a numbered list. Facts only, no commentary.
-\\\[press release text]
+[press release text]
 ```
 
 **Prompt 2 — Draft (uses output of Prompt 1):**
 
 ```
 Using these 5 facts:
-\\\[output from Prompt 1]
+[output from Prompt 1]
 
 Write a LinkedIn post announcing this news. 
 Audience: B2B technology decision-makers. 
@@ -1786,14 +1786,14 @@ Tone: Professional, confident. 150 words maximum.
 
 ```
 Review the following LinkedIn post for brand voice compliance:
-\\\[output from Prompt 2]
+[output from Prompt 2]
 
 Check against these brand guidelines:
 - Never use the word "innovative" or "revolutionary"
 - Always mention the customer benefit, not just the feature
 - Must include a call to action
 
-Return: \\\[APPROVED] or \\\[NEEDS REVISION: list specific issues]
+Return: [APPROVED] or [NEEDS REVISION: list specific issues]
 ```
 
 ### 8\. Prompt Breakdown
@@ -2130,8 +2130,8 @@ CONSTRAINTS:
 
 OUTPUT FORMAT:
 {
-  "subject\\\_line": "...",
-  "preview\\\_text": "..."
+  "subject_line": "...",
+  "preview_text": "..."
 }
 ```
 
@@ -2148,9 +2148,9 @@ OUTPUT FORMAT:
 **Example:**
 
 ```
-<retrieved\\\_documents>
-\\\[Relevant policy sections retrieved from document store]
-</retrieved\\\_documents>
+<retrieved_documents>
+[Relevant policy sections retrieved from document store]
+</retrieved_documents>
 
 Based ONLY on the retrieved documents above, step through this analysis:
 
@@ -2177,11 +2177,11 @@ Extract complaint information. Return as JSON.
 
 Example 1:
 Input: "My order arrived damaged and customer service hasn't responded."
-Output: {"category": "damaged\\\_goods", "secondary": "poor\\\_service", "urgency": "high"}
+Output: {"category": "damaged_goods", "secondary": "poor_service", "urgency": "high"}
 
 Example 2:
 Input: "The tracking number doesn't work on your website."
-Output: {"category": "tracking\\\_issue", "secondary": null, "urgency": "low"}
+Output: {"category": "tracking_issue", "secondary": null, "urgency": "low"}
 
 Now extract:
 Input: "I've been waiting 3 weeks and my package still hasn't arrived."
@@ -2283,15 +2283,15 @@ Example:
 CV: "3 years as business analyst, advanced SQL, Tableau certified, Excel expert, no Python"
 Output:
 {
-  "sql": 2, "python\\\_r": 0, "years\\\_experience": 2,
+  "sql": 2, "python_r": 0, "years_experience": 2,
   "visualisation": 2, "domain": 0,
-  "total\\\_score": 6, "max\\\_score": 10,
+  "total_score": 6, "max_score": 10,
   "recommendation": "INTERVIEW — strong SQL and viz, missing Python",
-  "red\\\_flags": \\\[]
+  "red_flags": []
 }
 
 Now evaluate this CV:
-\\\[CV TEXT]
+[CV TEXT]
 
 Return JSON in the exact same format. Be objective. Do not infer skills not explicitly mentioned.
 ```
@@ -2311,32 +2311,32 @@ You are a senior SQL developer working with PostgreSQL.
 
 CONSTRAINTS:
 - Read-only queries only (SELECT statements)
-- Always use explicit column names, never SELECT \\\*
+- Always use explicit column names, never SELECT *
 - Always include a comment explaining what the query does
 - Use CTEs for complex queries, not subqueries
 
 DATABASE SCHEMA:
-- orders (order\\\_id, customer\\\_id, order\\\_date, total\\\_amount, status)
-- customers (customer\\\_id, name, email, region, created\\\_date)
-- order\\\_items (item\\\_id, order\\\_id, product\\\_id, quantity, unit\\\_price)
-- products (product\\\_id, name, category, price)
+- orders (order_id, customer_id, order_date, total_amount, status)
+- customers (customer_id, name, email, region, created_date)
+- order_items (item_id, order_id, product_id, quantity, unit_price)
+- products (product_id, name, category, price)
 
 Example request: "Top 5 customers by revenue this year"
 Example query:
 -- Top 5 customers by total revenue in current year
 SELECT 
-    c.customer\\\_id,
+    c.customer_id,
     c.name,
-    SUM(o.total\\\_amount) as total\\\_revenue
+    SUM(o.total_amount) as total_revenue
 FROM customers c
-JOIN orders o ON c.customer\\\_id = o.customer\\\_id
-WHERE EXTRACT(YEAR FROM o.order\\\_date) = EXTRACT(YEAR FROM CURRENT\\\_DATE)
+JOIN orders o ON c.customer_id = o.customer_id
+WHERE EXTRACT(YEAR FROM o.order_date) = EXTRACT(YEAR FROM CURRENT_DATE)
   AND o.status = 'completed'
-GROUP BY c.customer\\\_id, c.name
-ORDER BY total\\\_revenue DESC
+GROUP BY c.customer_id, c.name
+ORDER BY total_revenue DESC
 LIMIT 5;
 
-Now write a query for: \\\[USER REQUEST]
+Now write a query for: [USER REQUEST]
 ```
 
 **Expected output:** Safe, well-commented, style-consistent SQL.
@@ -2350,11 +2350,11 @@ Now write a query for: \\\[USER REQUEST]
 **Why:** Role ensures empathetic tone. RAG provides accurate policy information. Constraints protect against making commitments the company can't keep.
 
 ```
-You are a professional customer service agent for \\\[Company Name].
+You are a professional customer service agent for [Company Name].
 You are empathetic, solution-focused, and calm even with upset customers.
 
 COMPANY POLICIES (use these to inform your response):
-\\\[Retrieved policy sections here]
+[Retrieved policy sections here]
 
 CONSTRAINTS:
 - Do not make specific compensation promises without manager approval
@@ -2364,7 +2364,7 @@ CONSTRAINTS:
 - Maximum 200 words
 
 Customer complaint:
-\\\[COMPLAINT TEXT]
+[COMPLAINT TEXT]
 
 Write a response that: acknowledges their frustration, explains what happened (if known), 
 states what action is being taken, gives a timeline.
@@ -2388,12 +2388,12 @@ do not infer decisions that weren't explicitly stated.
 Return in this exact format:
 
 ## Meeting Summary
-\\\*\\\*Date:\\\*\\\* \\\[extract from transcript or "Not stated"]
-\\\*\\\*Attendees:\\\*\\\* \\\[list names mentioned]
-\\\*\\\*Duration:\\\*\\\* \\\[if mentioned]
+**Date:** [extract from transcript or "Not stated"]
+**Attendees:** [list names mentioned]
+**Duration:** [if mentioned]
 
 ## Decisions Made
-- \\\[Each confirmed decision as a bullet]
+- [Each confirmed decision as a bullet]
 
 ## Action Items
 | Owner | Task | Deadline |
@@ -2401,14 +2401,14 @@ Return in this exact format:
 | | | |
 
 ## Open Questions
-- \\\[Items discussed but not resolved]
+- [Items discussed but not resolved]
 
 ## Next Meeting
-\\\[If mentioned, else: Not scheduled]
+[If mentioned, else: Not scheduled]
 </instruction>
 
 <transcript>
-\\\[MEETING TRANSCRIPT]
+[MEETING TRANSCRIPT]
 </transcript>
 ```
 
@@ -2426,9 +2426,9 @@ Return in this exact format:
 You are a senior site reliability engineer with expertise in distributed systems.
 
 An incident has occurred:
-INCIDENT: \\\[Describe what happened, when, impact]
-SYMPTOMS: \\\[List observable symptoms]
-TIMELINE: \\\[Events leading up to the incident]
+INCIDENT: [Describe what happened, when, impact]
+SYMPTOMS: [List observable symptoms]
+TIMELINE: [Events leading up to the incident]
 
 STEP 1 — Categorise: What are the possible root cause categories for this type of incident?
 (e.g., infrastructure failure, code deployment, external dependency, configuration change, traffic spike)
@@ -2465,33 +2465,33 @@ Review the following code for:
 
 For each issue found, return in this format:
 
-ISSUE #\\\[n]
+ISSUE #[n]
 - Severity: Critical / High / Medium / Low
-- Category: \\\[Bug / Security / Performance / Readability / Error Handling / Testing]
-- Line(s): \\\[line numbers if applicable]
-- Problem: \\\[what is wrong]
-- Fix: \\\[specific recommendation]
+- Category: [Bug / Security / Performance / Readability / Error Handling / Testing]
+- Line(s): [line numbers if applicable]
+- Problem: [what is wrong]
+- Fix: [specific recommendation]
 
-End with: OVERALL RATING: \\\[Approved / Approved with changes / Rejected]
+End with: OVERALL RATING: [Approved / Approved with changes / Rejected]
 
 Code to review:
-```\\\[language]
-\\\[CODE]
+```[language]
+[CODE]
 ```
 
 Be thorough. Do not approve code with any Critical or High severity issues.
 
 ```
 
-\\\*\\\*Expected output:\\\*\\\* Structured review with severity-rated findings and actionable fixes.
-\\\*\\\*Cost sensitivity:\\\*\\\* Medium.
+**Expected output:** Structured review with severity-rated findings and actionable fixes.
+**Cost sensitivity:** Medium.
 
 ---
 
 ## 7. Financial Report Summary
 
-\\\*\\\*Technique:\\\*\\\* Role + RAG + Output Format + Constraint
-\\\*\\\*Why:\\\*\\\* Role gives finance context. RAG grounds the summary in actual report numbers. Output format makes it executive-ready. Constraints prevent technical jargon.
+**Technique:** Role + RAG + Output Format + Constraint
+**Why:** Role gives finance context. RAG grounds the summary in actual report numbers. Output format makes it executive-ready. Constraints prevent technical jargon.
 
 ```
 
@@ -2537,15 +2537,15 @@ CONSTRAINTS:
 
 ```
 
-\\\*\\\*Expected output:\\\*\\\* Boardroom-ready summary any executive can act on.
-\\\*\\\*Cost sensitivity:\\\*\\\* Medium-high (report content adds input tokens).
+**Expected output:** Boardroom-ready summary any executive can act on.
+**Cost sensitivity:** Medium-high (report content adds input tokens).
 
 ---
 
 ## 8. Travel Planner
 
-\\\*\\\*Technique:\\\*\\\* Role + Chain of Thought + Output Format
-\\\*\\\*Why:\\\*\\\* Role activates travel expertise. CoT ensures logical day planning. Output format produces a usable itinerary.
+**Technique:** Role + Chain of Thought + Output Format
+**Why:** Role activates travel expertise. CoT ensures logical day planning. Output format produces a usable itinerary.
 
 ```
 
@@ -2581,15 +2581,15 @@ Include: Estimated daily spend. One "local tip" per day.
 
 ```
 
-\\\*\\\*Expected output:\\\*\\\* Practical, personalised itinerary the traveller can actually follow.
-\\\*\\\*Cost sensitivity:\\\*\\\* Medium.
+**Expected output:** Practical, personalised itinerary the traveller can actually follow.
+**Cost sensitivity:** Medium.
 
 ---
 
 ## 9. Study Coach
 
-\\\*\\\*Technique:\\\*\\\* Role + Constraint + Reflection
-\\\*\\\*Why:\\\*\\\* Role sets a coaching (not just answering) approach. Constraints prevent giving direct answers (forces learning). Reflection builds metacognition.
+**Technique:** Role + Constraint + Reflection
+**Why:** Role sets a coaching (not just answering) approach. Constraints prevent giving direct answers (forces learning). Reflection builds metacognition.
 
 ```
 
@@ -2613,15 +2613,15 @@ CONSTRAINT: Do not write the final answer to their question. Your job is to make
 
 ```
 
-\\\*\\\*Expected output:\\\*\\\* Socratic coaching response that builds genuine understanding.
-\\\*\\\*Cost sensitivity:\\\*\\\* Low.
+**Expected output:** Socratic coaching response that builds genuine understanding.
+**Cost sensitivity:** Low.
 
 ---
 
 ## 10. Internal Policy Chatbot
 
-\\\*\\\*Technique:\\\*\\\* RAG + Constraint + Output Format + Delimiter
-\\\*\\\*Why:\\\*\\\* RAG ensures accurate, current policy information. Constraints prevent liability issues. Format makes answers clear and actionable.
+**Technique:** RAG + Constraint + Output Format + Delimiter
+**Why:** RAG ensures accurate, current policy information. Constraints prevent liability issues. Format makes answers clear and actionable.
 
 ```
 
@@ -2650,8 +2650,8 @@ Answer format:
 
 ```
 
-\\\*\\\*Expected output:\\\*\\\* Accurate, sourced, actionable policy answer with clear escalation path.
-\\\*\\\*Cost sensitivity:\\\*\\\* Medium (retrieval adds tokens, but keeps answers accurate and reduces HR team overhead).
+**Expected output:** Accurate, sourced, actionable policy answer with clear escalation path.
+**Cost sensitivity:** Medium (retrieval adds tokens, but keeps answers accurate and reduces HR team overhead).
 
 ---
 
@@ -2664,18 +2664,18 @@ When your prompt fails, the problem is almost always in one of these eight place
 
 ## Failure 1 — The Vague Prompt
 
-\\\*\\\*Why it fails:\\\*\\\* The AI has to guess what you actually want. It picks the most statistically common interpretation, which often isn't your interpretation.
+**Why it fails:** The AI has to guess what you actually want. It picks the most statistically common interpretation, which often isn't your interpretation.
 
-\\\*\\\*Bad prompt:\\\*\\\*
+**Bad prompt:**
 ```
 
 Write something about our product.
 
 ```
 
-\\\*\\\*Why it's bad:\\\*\\\* What kind of writing? How long? For who? What product? What goal?
+**Why it's bad:** What kind of writing? How long? For who? What product? What goal?
 
-\\\*\\\*Improved prompt:\\\*\\\*
+**Improved prompt:**
 ```
 
 Write a 200-word product description for our inventory management software.
@@ -2685,15 +2685,15 @@ Include: One concrete example of time saved.
 
 ```
 
-\\\*\\\*How to test the fix:\\\*\\\* Ask a colleague to read only the prompt (not the output). Can they predict what the AI will produce? If not, it's still too vague.
+**How to test the fix:** Ask a colleague to read only the prompt (not the output). Can they predict what the AI will produce? If not, it's still too vague.
 
 ---
 
 ## Failure 2 — Conflicting Instructions
 
-\\\*\\\*Why it fails:\\\*\\\* The AI tries to satisfy all instructions simultaneously and ends up satisfying none of them properly.
+**Why it fails:** The AI tries to satisfy all instructions simultaneously and ends up satisfying none of them properly.
 
-\\\*\\\*Bad prompt:\\\*\\\*
+**Bad prompt:**
 ```
 
 Be concise but cover every detail. Be formal but conversational.
@@ -2701,9 +2701,9 @@ Write for experts but make it understandable to everyone.
 
 ```
 
-\\\*\\\*Why it's bad:\\\*\\\* These instructions directly contradict each other.
+**Why it's bad:** These instructions directly contradict each other.
 
-\\\*\\\*Improved prompt:\\\*\\\*
+**Improved prompt:**
 ```
 
 Write a technical overview for a software engineer audience.
@@ -2713,15 +2713,15 @@ Skip: Basic explanations of standard concepts (e.g., REST APIs, SQL).
 
 ```
 
-\\\*\\\*How to test the fix:\\\*\\\* Read your constraints list. Do any two of them pull in opposite directions? Remove or reconcile.
+**How to test the fix:** Read your constraints list. Do any two of them pull in opposite directions? Remove or reconcile.
 
 ---
 
 ## Failure 3 — Too Many Tasks at Once
 
-\\\*\\\*Why it fails:\\\*\\\* Cognitive overload for the model. Quality drops on all tasks when there are more than 2–3 simultaneous objectives.
+**Why it fails:** Cognitive overload for the model. Quality drops on all tasks when there are more than 2–3 simultaneous objectives.
 
-\\\*\\\*Bad prompt:\\\*\\\*
+**Bad prompt:**
 ```
 
 Read this document, summarise it, find all the action items,
@@ -2730,28 +2730,28 @@ and suggest three improvements to the document structure.
 
 ```
 
-\\\*\\\*Why it's bad:\\\*\\\* Six distinct tasks, all interleaved. Quality degrades significantly across all of them.
+**Why it's bad:** Six distinct tasks, all interleaved. Quality degrades significantly across all of them.
 
-\\\*\\\*Improved approach:\\\*\\\* Chain the tasks. Prompt 1 = summarise. Prompt 2 = action items. Prompt 3 = consistency check. Etc.
+**Improved approach:** Chain the tasks. Prompt 1 = summarise. Prompt 2 = action items. Prompt 3 = consistency check. Etc.
 
-\\\*\\\*How to test the fix:\\\*\\\* Can you describe each task as a single job? If not, it's still too many.
+**How to test the fix:** Can you describe each task as a single job? If not, it's still too many.
 
 ---
 
 ## Failure 4 — No Output Format Specified
 
-\\\*\\\*Why it fails:\\\*\\\* The model defaults to prose. Your system expects JSON. Your app crashes.
+**Why it fails:** The model defaults to prose. Your system expects JSON. Your app crashes.
 
-\\\*\\\*Bad prompt:\\\*\\\*
+**Bad prompt:**
 ```
 
 Extract the customer name, order date, and total amount from this invoice.
 
 ```
 
-\\\*\\\*Why it's bad:\\\*\\\* You'll get: "The customer name is John Smith and the order was placed on January 15th for a total of £245.00."
+**Why it's bad:** You'll get: "The customer name is John Smith and the order was placed on January 15th for a total of £245.00."
 
-\\\*\\\*Improved prompt:\\\*\\\*
+**Improved prompt:**
 ```
 
 Extract the following from the invoice and return as JSON:
@@ -2763,43 +2763,43 @@ Extract the following from the invoice and return as JSON:
 
 ```
 
-\\\*\\\*How to test the fix:\\\*\\\* Paste the output directly into your application. Does it work?
+**How to test the fix:** Paste the output directly into your application. Does it work?
 
 ---
 
 ## Failure 5 — Hallucination
 
-\\\*\\\*Why it fails:\\\*\\\* The model doesn't have the information and makes it up rather than admitting uncertainty.
+**Why it fails:** The model doesn't have the information and makes it up rather than admitting uncertainty.
 
-\\\*\\\*Bad prompt:\\\*\\\*
+**Bad prompt:**
 ```
 
 What were our Q3 sales figures?
 
 ```
 
-\\\*\\\*Why it's bad:\\\*\\\* The model doesn't have your internal data. It will either say it doesn't know (best case) or invent numbers that sound plausible (worst case).
+**Why it's bad:** The model doesn't have your internal data. It will either say it doesn't know (best case) or invent numbers that sound plausible (worst case).
 
-\\\*\\\*Improved approach:\\\*\\\* Use RAG to provide the actual data. Or explicitly instruct: "If you don't have this information, say 'I don't know — please check your internal reporting system.' Do not estimate or guess."
+**Improved approach:** Use RAG to provide the actual data. Or explicitly instruct: "If you don't have this information, say 'I don't know — please check your internal reporting system.' Do not estimate or guess."
 
-\\\*\\\*How to test the fix:\\\*\\\* Ask a question you know the AI doesn't have data for. Does it hallucinate, or does it correctly say it doesn't know?
+**How to test the fix:** Ask a question you know the AI doesn't have data for. Does it hallucinate, or does it correctly say it doesn't know?
 
 ---
 
 ## Failure 6 — Poor or Missing Examples
 
-\\\*\\\*Why it fails:\\\*\\\* The model produces something technically correct but not in your format or style.
+**Why it fails:** The model produces something technically correct but not in your format or style.
 
-\\\*\\\*Bad prompt:\\\*\\\*
+**Bad prompt:**
 ```
 
 Write a product update notification in our company's tone of voice.
 
 ```
 
-\\\*\\\*Why it's bad:\\\*\\\* The model doesn't know your tone of voice. "Professional" means different things to different companies.
+**Why it's bad:** The model doesn't know your tone of voice. "Professional" means different things to different companies.
 
-\\\*\\\*Improved prompt:\\\*\\\*
+**Improved prompt:**
 ```
 
 Write a product update notification in our company's tone of voice.
@@ -2812,24 +2812,24 @@ Now write a notification for this update: \[UPDATE DETAILS]
 
 ```
 
-\\\*\\\*How to test the fix:\\\*\\\* Show the output to someone who knows your brand. Do they recognise the voice?
+**How to test the fix:** Show the output to someone who knows your brand. Do they recognise the voice?
 
 ---
 
 ## Failure 7 — Missing Context
 
-\\\*\\\*Why it fails:\\\*\\\* The model lacks critical information and either guesses wrong or produces a generic answer that doesn't fit your situation.
+**Why it fails:** The model lacks critical information and either guesses wrong or produces a generic answer that doesn't fit your situation.
 
-\\\*\\\*Bad prompt:\\\*\\\*
+**Bad prompt:**
 ```
 
 Write an email response to this complaint.
 
 ```
 
-\\\*\\\*Why it's bad:\\\*\\\* What company? What are the relevant policies? What authority does the responder have? What's the company's standard procedure?
+**Why it's bad:** What company? What are the relevant policies? What authority does the responder have? What's the company's standard procedure?
 
-\\\*\\\*Improved prompt:\\\*\\\*
+**Improved prompt:**
 ```
 
 You are a customer service agent at \[Company Name].
@@ -2841,15 +2841,15 @@ Write a response that follows our policies.
 
 ```
 
-\\\*\\\*How to test the fix:\\\*\\\* Would the response still be accurate if the context you provided turned out to be different? If so, you've added context correctly.
+**How to test the fix:** Would the response still be accurate if the context you provided turned out to be different? If so, you've added context correctly.
 
 ---
 
 ## Failure 8 — Over-Constrained Prompts
 
-\\\*\\\*Why it fails:\\\*\\\* Too many rules, some contradicting, the model gets confused or starts randomly breaking constraints.
+**Why it fails:** Too many rules, some contradicting, the model gets confused or starts randomly breaking constraints.
 
-\\\*\\\*Bad prompt:\\\*\\\*
+**Bad prompt:**
 ```
 
 Write in formal English. But be friendly. Use technical language.
@@ -2859,11 +2859,11 @@ Be original. But match these 5 examples exactly.
 
 ```
 
-\\\*\\\*Why it's bad:\\\*\\\* These constraints are incoherent together.
+**Why it's bad:** These constraints are incoherent together.
 
-\\\*\\\*Improved approach:\\\*\\\* Rank your constraints. Keep the top 3–5 that matter most. Remove the rest.
+**Improved approach:** Rank your constraints. Keep the top 3–5 that matter most. Remove the rest.
 
-\\\*\\\*How to test the fix:\\\*\\\* Read your constraints aloud. If any two would give a person conflicting directions, simplify.
+**How to test the fix:** Read your constraints aloud. If any two would give a person conflicting directions, simplify.
 
 ---
 
@@ -2878,24 +2878,24 @@ When prompt engineering moves from personal productivity to business-critical sy
 
 Treat prompts like code. Every prompt change should be tracked.
 
-\\\*\\\*Minimum versioning practice:\\\*\\\*
+**Minimum versioning practice:**
 - Store prompts in a version control system (Git works fine)
 - Use semantic versioning: `v1.0.0` → `v1.0.1` (minor fix) → `v1.1.0` (improvement) → `v2.0.0` (breaking change)
 - Keep a changelog: what changed, why, what the expected impact is
 - Never overwrite production prompts without a staged rollout
 
-\\\*\\\*Prompt metadata to track:\\\*\\\*
+**Prompt metadata to track:**
 ```yaml
-prompt\\\_id: customer\\\_complaint\\\_classifier\\\_v1.2.0
+prompt_id: customer_complaint_classifier_v1.2.0
 created: 2024-01-15
-last\\\_modified: 2024-03-20
-owner: data\\\_team@company.com
+last_modified: 2024-03-20
+owner: data_team@company.com
 model: gpt-4o
-use\\\_case: Customer support ticket routing
-avg\\\_tokens\\\_in: 350
-avg\\\_tokens\\\_out: 45
-avg\\\_cost\\\_per\\\_call: $0.006
-success\\\_rate: 94.2%
+use_case: Customer support ticket routing
+avg_tokens_in: 350
+avg_tokens_out: 45
+avg_cost_per_call: $0.006
+success_rate: 94.2%
 ```
 
 \---
@@ -3036,17 +3036,17 @@ In enterprise systems, prompts should be templates with variable slots — not s
 **Template structure:**
 
 ```
-SYSTEM: You are a {role} at {company\\\_name}. {role\\\_specific\\\_instructions}
+SYSTEM: You are a {role} at {company_name}. {role_specific_instructions}
 
-TASK: {task\\\_description}
+TASK: {task_description}
 
-CONTEXT: {injected\\\_context}
+CONTEXT: {injected_context}
 
-CONSTRAINTS: {constraint\\\_block\\\_for\\\_this\\\_task\\\_type}
+CONSTRAINTS: {constraint_block_for_this_task_type}
 
-INPUT: {user\\\_input}
+INPUT: {user_input}
 
-OUTPUT FORMAT: {format\\\_schema}
+OUTPUT FORMAT: {format_schema}
 ```
 
 **Benefits:**
@@ -3135,10 +3135,10 @@ Before building any AI prompt system, answer:
 ```
 Monthly manual cost: 200 hours × £50/hour = £10,000
 Monthly AI cost: 100,000 queries × £0.01 = £1,000
-Monthly maintenance: \\\~8 hours × £50 = £400
+Monthly maintenance: ~8 hours × £50 = £400
 
 Monthly saving: £10,000 - £1,400 = £8,600
-Annual saving: \\\~£103,200
+Annual saving: ~£103,200
 ```
 
 \---
